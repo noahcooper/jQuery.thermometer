@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery Thermometer Demos</title>
+  
+  <style>
+    /* demo styles */
+    
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 0.9em;
+    }
+    
+    /* demo containers */
+    .thermometer-demo {
+      border-top: 1px solid #c4c4c4;
+      margin-bottom: 1em;
+      padding-bottom: 0.25em;
+    }
+    
+    /* demo markup */
+    pre {
+      background: #f8f8f8;
+      border: 1px solid #ddd;
+      padding: 6px;
+      word-wrap: break-word;
+    }
+    
+    /* default demo thermometer styles */
+    .thermometer-outer {
+      background: #c4f0ff;
+      border: 1px solid #c4c4c4;
+      border-radius: 3px;
+    }
+    .thermometer-outer-h {
+      height: 20px;
+      width: 100%;
+    }
+    .thermometer-outer-v {
+      height: 200px;
+      width: 20px;
+    }
+    .thermometer-inner {
+      background: #3f83f7;
+    }
+    .thermometer-inner-h {
+      height: 20px;
+    }
+    .thermometer-inner-v {
+      width: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>jQuery Thermometer Demos</h1>
+  
+  <ul id="toc"></ul>
+  
+  <section>
+    <div class="thermometer-demo">
+      <h2>Basic Thermometer</h2>
+      <div class="thermometer thermometer-noconfig" id="thermometer-a" data-percent="75"></div>
+      <p>At its simplest, the markup for a thermometer looks like this:</p>
+      <pre>&lt;div data-percent="75"&gt;&lt;/div&gt;</pre>
+      <p>The <code>data-percent</code> attribute indicates the thermometer's percent to goal, in this case 75%. While this attribute is not required, if it is not defined, the default is 0%.</p>
+      <p>Of course, using the plugin on this element will prove much easier if it can be identified with some meaningful selector, like:</p>
+      <pre>&lt;div class="thermometer" data-percent="75"&gt;&lt;/div&gt;</pre>
+      <p>With this className added, calling the plugin is a piece of cake:</p>
+      <pre>$('.thermometer').thermometer();</pre>
+      <p>Once <code>$.thermometer()</code> has been called, a thermometer will be inserted into the element. (Note: The thermometer will completely replace the element's existing innerHTML.)</p>
+      <pre>&lt;div class="thermometer" data-percent="75"&gt;<br>&nbsp;&nbsp;&lt;div class="thermometer-outer"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="thermometer-inner"&gt;&lt;/div&gt;<br>&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/div&gt;</pre>
+      <p>Styling the thermometer is simple:</p>
+      <pre>.thermometer-outer {<br>&nbsp;&nbsp;background: #c4f0ff;<br>&nbsp;&nbsp;border: 1px solid #c4c4c4;<br>&nbsp;&nbsp;border-radius: 3px;<br>&nbsp;&nbsp;height: 20px;<br>&nbsp;&nbsp;width: 100%;<br>}<br>.thermometer-inner {<br>&nbsp;&nbsp;background: #3f83f7;<br>&nbsp;&nbsp;height: 20px;<br>}</pre>
+      <p>As the thermometer is animated, the plugin will automatically adjust <code>.thermometer-inner</code> to set its width (for horizontal thermometers) or height (for vertical thermometers). For this reason, you should not set these properties within your CSS.</p>
+    </div>
+  </section>
+    
+  <section>
+    <div class="thermometer-demo">
+      <h2>Slow Animation</h2>
+      <div class="thermometer thermometer-noconfig" id="thermometer-b" data-percent="75" data-speed="slow"></div>
+      <p>The plugin animates thermometers using <a target="_blank" href="http://api.jquery.com/animate/"<code>jQuery.animate()</code></a>. By default, the plugin will use an animation duration of 1 second. The <code>data-speed</code> attribute can be used to adjust this. Setting the speed to "slow" will result in a duration of 1.5 seconds instead.</p>
+      <pre>&lt;div class="thermometer" data-percent="75" data-speed="slow"&gt;&lt;/div&gt;</pre>
+    </div>
+    
+    <div class="thermometer-demo">
+      <h2>Fast Animation</h2>
+      <div class="thermometer thermometer-noconfig" id="thermometer-c" data-percent="75" data-speed="fast"></div>
+      <p>Setting the speed to "fast" will result in an animation duration of 200 milliseconds.</p>
+      <pre>&lt;div class="thermometer" data-percent="75" data-speed="fast"&gt;&lt;/div&gt;</pre>
+    </div>
+    
+    <div class="thermometer-demo">
+      <h2>Explicit Animation Speed</h2>
+      <div class="thermometer thermometer-noconfig" id="thermometer-d" data-percent="75" data-speed="600"></div>
+      <p>Alternatively, the speed can be adjusted using an explicitly defined number of milliseconds.</p>
+      <pre>&lt;div class="thermometer" data-percent="75" data-speed="600"&gt;&lt;/div&gt;</pre>
+    </div>
+    
+    <div class="thermometer-demo">
+      <h2>No Animation</h2>
+      <div class="thermometer thermometer-noconfig" id="thermometer-e" data-percent="75" data-animate="false"></div>
+      <p>Animation can be completely disabled using the <code>data-animate</code> attribute.</p>
+      <pre>&lt;div class="thermometer" data-percent="75" data-animate="false"&gt;&lt;/div&gt;</pre>
+    </div>
+  </section>
+  
+  <section>
+    <div class="thermometer-demo">
+      <h2>Vertical Thermometer</h2>
+      <div class="thermometer thermometer-noconfig" id="thermometer-f" data-percent="75" data-orientation="vertical"></div>
+      <p>By default, thermometers will be displayed horizontally. The <code>data-orientation</code> attribute can be used to instead render a vertical thermometer.</p>
+      <pre>&lt;div class="thermometer" data-percent="75" data-orientation="vertical"&gt;&lt;/div&gt;</pre>
+      <p>Horizontal and vertical thermometers use distinct classNames, "thermometer-outer-h" and "thermometer-inner-h" and "thermometer-outer-v" and "thermometer-inner-v" respectively.</p>
+      <pre>&lt;div class="thermometer" data-percent="75" data-orientation="vertical"&gt;<br>&nbsp;&nbsp;&lt;div class="thermometer-outer thermometer-outer-v"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="thermometer-inner thermometer-inner-v"&gt;&lt;/div&gt;<br>&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/div&gt;</pre>
+      <p>This allows for styles to be defined differently for each orientation.</p>
+      <pre>.thermometer-outer {<br>&nbsp;&nbsp;background: #c4f0ff;<br>&nbsp;&nbsp;border: 1px solid #c4c4c4;<br>&nbsp;&nbsp;border-radius: 3px;<br>}<br>.thermometer-outer-h {<br>&nbsp;&nbsp;height: 20px;<br>&nbsp;&nbsp;width: 100%;<br>}<br>.thermometer-outer-v {<br>&nbsp;&nbsp;height: 200px;<br>&nbsp;&nbsp;width: 20px;<br>}<br>.thermometer-inner {<br>&nbsp;&nbsp;background: #3f83f7;<br>}<br>.thermometer-inner-h {<br>&nbsp;&nbsp;height: 20px;<br>}<br>.thermometer-inner-v {<br>&nbsp;&nbsp;width: 20px;<br>}</pre>
+    </div>
+  </section>
+  
+  <section>
+    <div class="thermometer-demo">
+      <h2>Configuration Options</h2>
+      <div class="thermometer thermometer-config" id="thermometer-g"></div>
+      <p>When <code>$.thermometer()</code> is called, it optionally accepts a configuration object which will override the default plugin settings.</p>
+      <pre>$('.thermometer').thermometer({<br>&nbsp;&nbsp;percent: 75, <br>&nbsp;&nbsp;speed: 'slow'<br>});</pre>
+      <p>Even if a configuration object is provided, inline <code>data-</code> attributes will always take precedence.</p>
+    </div>
+  </section>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="jquery.thermometer.js"></script>
+  <script>
+    (function($) {
+      $(function() {
+        $('.thermometer-demo').each(function() {
+          /* build table of contents for each section */
+          var demoName = $(this).find('h2').html(), 
+          demoAnchor = demoName.replace(/ /g, '-').toLowerCase();
+          $(this).prepend('<a name="' + demoAnchor + '"></a>');
+          $('#toc').append('<li><a href="#' + demoAnchor + '">' + demoName + '</a></li>');
+        });
+        
+        /* thermometers with no config */
+        $('.thermometer').thermometer();
+        
+        /* thermometers with config */
+        $('.thermometer-config').thermometer({
+          percent: 75, 
+          speed: 'slow'
+        })
+      });
+    })(jQuery);
+  </script>
+</body>
+</html>
