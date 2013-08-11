@@ -1,7 +1,7 @@
 jQuery.thermometer
 ==================
 
-**Version: 1.0 (11-AUG-2013)**
+**Version: 1.0 (11-AUG-2013)**  
 **Requires: jQuery v1.6.4+**
 
 jQuery.thermometer is a jQuery plugin which can be used to create thermometers and progress meters.
