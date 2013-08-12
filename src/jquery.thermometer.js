@@ -1,5 +1,5 @@
 /*
- * jQuery.thermometer - https://github.com/noahcooper/jQueryThermometer
+ * jQuery.thermometer - https://github.com/noahcooper/jQuery.thermometer
  * Version: 1.0 (11-AUG-2013)
  * Requires: jQuery v1.6.4+
  */
