@@ -3,10 +3,9 @@
     "title": "jQuery Thermometer",
     "description": "jQuery plugin for creating thermometers and progress meters.",
     "keywords": [
-        "thermometer",
-        "progress meter"
+        "thermometer"
     ],
-    "version": "1.0",
+    "version": "1.0.0",
     "author": {
         "name": "Noah Cooper",
         "url": "https://github.com/noahcooper"
