@@ -4,7 +4,7 @@
  * Requires: jQuery v1.6.4+
  *
  * Released under the MIT license.
- * 
+ * https://github.com/noahcooper/jQuery.thermometer/blob/master/MIT-LICENSE.txt
  */
 
 (function($) {
